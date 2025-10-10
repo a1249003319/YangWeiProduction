@@ -1,0 +1,164 @@
+﻿<UserControl x:Class="YangWei.Main.Views.TestUserControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:YangWei.Main.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Utils/MaterialDesignThemes.xaml"/>
+                <ResourceDictionary Source="../Utils/DataGridStyles.xaml"/>
+                <ResourceDictionary Source="../Converters/RecourceBySync.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- 货币格式转换器 -->
+          
+
+            <!-- 日期格式转换器 --><!--
+            <local:DateFormatConverter x:Key="DateFormatConverter" />-->
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,30,0">
+            <Button Content="新增" Command="{Binding AddMenusCommand}"/>
+        </StackPanel>
+
+        <syncfusion:SfTreeGrid
+             ScrollViewer.HorizontalScrollBarVisibility="Visible"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            x:Name="SfTreeGrid"
+            Margin="3"
+            AutoExpandMode="None"
+            ColumnSizer="Star"
+            ShowSortNumbers="False"
+            ShowRowHeader="True"
+            Grid.Row="1"
+            GridLinesVisibility="Both"
+            AutoGenerateColumns="False"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            SelectedItem="{Binding MenusModel}"
+            ItemsSource="{Binding MenusModelList}"
+           
+            >
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionOnChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectedChangedCommand}"
+                                           />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <syncfusion:SfTreeGrid.Columns>
+                <syncfusion:TreeGridTextColumn HeaderText="菜单名称" MappingName="TitleName"/>
+                <syncfusion:TreeGridTextColumn HeaderText="菜单图标" MappingName="Image"/>
+                <syncfusion:TreeGridTextColumn HeaderText="描述" MappingName="ReMark"/>
+                <syncfusion:TreeGridTextColumn HeaderText="是否显示" MappingName="IsShow"/>
+
+                <!-- 按钮列 -->
+                <syncfusion:TreeGridTemplateColumn HeaderText="操作" Width="120">
+                    <syncfusion:TreeGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="编辑" 
+                            Command="{Binding Path=EditCommand,RelativeSource={RelativeSource AncestorType=Control}}"
+                            CommandParameter="{Binding}"
+                            Padding="5,2"
+                            VerticalAlignment="Center"
+                                    Width="40"
+                                    Background="#50A0FF"
+                            FontSize="12"/>
+                        </DataTemplate>
+                    </syncfusion:TreeGridTemplateColumn.CellTemplate>
+                </syncfusion:TreeGridTemplateColumn>
+
+                <!-- 注意：员工信息在另一个集合中，我们需要通过关系来显示 -->
+            </syncfusion:SfTreeGrid.Columns>
+        </syncfusion:SfTreeGrid>
+        <!-- DataGrid 表格 -->
+        <!--<materialDesign:Card Grid.Row="1" Margin="8,0,8,8" Padding="0">
+            <DataGrid ItemsSource="{Binding MenusModelList}"
+                    SelectedItem="{Binding SelectedEmployee}"
+                    Style="{StaticResource MaterialDataGridStyle}"
+                    ColumnHeaderStyle="{StaticResource MaterialDataGridColumnHeaderStyle}"
+                    RowStyle="{StaticResource MaterialDataGridRowStyle}"
+                    CellStyle="{StaticResource MaterialDataGridCellStyle}">
+
+                <DataGrid.Columns>
+                    --><!-- 菜单名称 --><!--
+                    <DataGridTextColumn Header="菜单名称" Binding="{Binding TitleName}" Width="1*" IsReadOnly="True" />
+
+                    --><!-- 菜单图标 --><!--
+                    <DataGridTextColumn Header="菜单图标" Binding="{Binding Image}" Width="1*" />
+
+                    --><!-- 描述 --><!--
+                    <DataGridTextColumn Header="描述" Binding="{Binding ReMark}" Width="1*" />
+
+                    --><!-- 是否显示 --><!--
+                    <DataGridTextColumn Header="是否显示" Binding="{Binding IsShow}" Width="1*" />
+
+                    --><!-- 状态列 -->
+                    <!--<DataGridTemplateColumn Header="状态" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border CornerRadius="4" Background="{Binding IsActive}">
+                                    <TextBlock Text="{Binding IsActive}"
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             Margin="8,4" Foreground="White" FontWeight="SemiBold" />
+                                </Border>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+
+                  
+
+                    <!-- 操作列 -->
+                    <!--<DataGridTemplateColumn Header="操作" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource MaterialDesignIconButton}"
+                                          ToolTip="删除"
+                                          Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                          CommandParameter="{Binding}">
+                                        <materialDesign:PackIcon Kind="Edit" Width="16" Height="16" />
+                                    </Button>
+
+                                    <Button Style="{StaticResource MaterialDesignIconButton}"
+                                          ToolTip="查看详情"
+                                          Command="{Binding DataContext.ViewDetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                          CommandParameter="{Binding}">
+                                        <materialDesign:PackIcon Kind="Eye" Width="16" Height="16" />
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>--><!--
+                </DataGrid.Columns>
+            </DataGrid>
+        </materialDesign:Card>-->
+
+        <!-- 状态栏 -->
+        <StatusBar Grid.Row="3" Background="{DynamicResource MaterialDesignBackground}">
+            <StatusBarItem>
+                <TextBlock Text="{Binding Employees.Count, StringFormat='总记录数: {0}'}" Margin="8,0" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding SelectedEmployee.Name, StringFormat='选中: {0}'}" 
+                         Margin="8,0" 
+                         Visibility="{Binding SelectedEmployee}" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>

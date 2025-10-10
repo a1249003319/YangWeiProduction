@@ -1,0 +1,26 @@
+﻿<Application x:Class="YangWei.Main.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:YangWei.Main"
+             StartupUri="LoginView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Material Design 资源 -->
+                <!-- Material Design 资源 -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
+                <!-- 自定义转换器 -->
+                <!--<ResourceDictionary Source="Converters/CurrencyConverter" />-->
+                <ResourceDictionary Source="/Converters/RecourceBySync.xaml" />
+                <ResourceDictionary Source="/Utils/UiText.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+   
+        </ResourceDictionary>
+    </Application.Resources>
+
+ 
+</Application>

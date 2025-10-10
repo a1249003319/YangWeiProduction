@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <BaseOutputPath>..\bin\</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YangWei.Db\YangWei.Db.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="MaterialDesignColors" Version="5.3.0-ci1117" />
+    <PackageReference Include="MaterialDesignThemes.Wpf" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="SunnyUI" Version="3.8.7" />
+    <PackageReference Include="Syncfusion.DataGridExcelExport.Wpf" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.Licensing" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfBusyIndicator.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfNavigationDrawer.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfTextInputLayout.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.SfTreeView.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.Themes.FluentLight.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.Themes.Windows11Light.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.UI.WPF.NET" Version="29.1.41" />
+    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="29.1.41" />
+  </ItemGroup>
+
+</Project>
