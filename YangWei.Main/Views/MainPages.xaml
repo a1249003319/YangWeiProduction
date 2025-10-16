@@ -66,26 +66,43 @@
                          ItemsSource="{Binding MenuItems}"
                          SelectedItem="{Binding SelectedMenuItem}"
                          ItemContainerStyle="{StaticResource MaterialMenuListItem}"
+                         
                          Background="Transparent"
                          BorderThickness="0">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                Command="{Binding MenuSelectionChangedCommand}"
+                CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ListBox}}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListBox.ItemTemplate>
+                        
+                        
+                        
                         <DataTemplate>
+
+                    
                             <Grid Margin="8,4">
+                    
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-
-                                <materialDesign:PackIcon Grid.Column="0" 
-                                                         Kind="{Binding Icon}" 
+                     
+                                <!--<materialDesign:PackIcon Grid.Column="0" 
+                                                         Kind="{Binding Image}" 
                                                          Width="20" 
                                                          Height="20"
                                                          Margin="12,0"
-                                                         VerticalAlignment="Center" />
-
+                                                         VerticalAlignment="Center" />-->
+                                <Image Source="{Binding Image}" 
+                                        Width="50" Height="20" 
+                                        Margin="0,0,5,0"/>
                                 <TextBlock Grid.Column="1" 
-                                           Text="{Binding Title}" 
-                                           FontSize="14"
+                                           Text="{Binding TitleName}" 
+                                           FontSize="20"
                                            VerticalAlignment="Center"
                                            Margin="0,0,12,0" />
                             </Grid>

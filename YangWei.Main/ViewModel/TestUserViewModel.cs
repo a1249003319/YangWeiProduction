@@ -26,7 +26,7 @@ namespace YangWei.Main.ViewModel
         {
             List<MenusModel> menusModel=new List<MenusModel>();
             MesDbContext mesDbContext=new MesDbContext();
-            var menusList= mesDbContext.Menus.ToList();
+            var menusList= mesDbContext.Menus.Where(item=>item.IsShow==IsShows.Show).ToList();
             List<MenusModel> menusModels = menusList.Adapt<List<MenusModel>>().Adapt(new List<MenusModel>());
             foreach (var data in menusModels) MenusModelList.Add(data);
         }

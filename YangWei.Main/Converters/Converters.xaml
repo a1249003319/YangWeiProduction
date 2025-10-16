@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--<converter:TimeSpanConverter x:Key="TimeSpanConverter"/>
+
+    <converter:DateTimeConverter x:Key="DateTimeConverter"></converter:DateTimeConverter>
+    <converter:EnumDescriptionConverter x:Key="EnumDescriptionConverter"></converter:EnumDescriptionConverter>
+    <converter:BoolReverseConverter x:Key="BoolReverseConverter"></converter:BoolReverseConverter>
+    <converter:BoolStringConverter x:Key="BoolStringConverter"></converter:BoolStringConverter>
+    <converter:Bool2VisibilityConverter x:Key="Bool2VisibilityConverter"></converter:Bool2VisibilityConverter>-->
+</ResourceDictionary>

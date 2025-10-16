@@ -18,13 +18,13 @@ namespace YangWei.Db.Uitls
         public int Id { get; set; }
 
         [Required]
-        public DateTime CreatTime { get; set; } = DateTime.Now;
+        public DateTime CreateTime { get; set; } = DateTime.Now;
         [Required]
         public DateTime UpdateTime { get; set; }= DateTime.Now;
         [Required]
-        public string CreateUser { get; set; } = "zhangsan";
+        public string CreateUser { get; set; } = "test";
         [Required]
-        public string UpdateUser { get; set; } = "zhangsan";
+        public string UpdateUser { get; set; } = "test";
 
         }
 }

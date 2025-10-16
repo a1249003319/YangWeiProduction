@@ -43,12 +43,12 @@ namespace YangWei.Main.Converters
                 Palette = Windows11Palette.Default,
                 PrimaryBackground = new SolidColorBrush(new Color { A = 255, R = 80, G = 160, B = 255 }),
                 PrimaryForeground=new SolidColorBrush(Colors.White),
-                HeaderFontSize=12,
-                SubHeaderFontSize=12,
-                TitleFontSize=12,
-                SubTitleFontSize=12,
-                BodyFontSize=12,
-                BodyAltFontSize=12,
+                HeaderFontSize=14,
+                SubHeaderFontSize=14,
+                TitleFontSize=14,
+                SubTitleFontSize=14,
+                BodyFontSize=14,
+                BodyAltFontSize=14,
                 FontFamily=new FontFamily("Microsoft Yahei UI")
 
             };

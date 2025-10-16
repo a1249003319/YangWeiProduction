@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using YangWei.Db.Db;
+using YangWei.Db.Entity;
 
 namespace YangWei.Main.ViewModel
 {
@@ -30,6 +33,12 @@ namespace YangWei.Main.ViewModel
 
         public TestWindowViewModels()
         {
+
+           
+
+
+
+
             MenuItems = new ObservableCollection<MenuItem>
             {
                 new MenuItem

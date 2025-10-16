@@ -10,9 +10,10 @@
                 <!-- Material Design 资源 -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="/Converters/_Thickness.xaml" />
+                <!--<ResourceDictionary Source="/Converters/_Thickness.xaml" />
                 <ResourceDictionary Source="/Converters/MetroWindow.xaml" />
-                <ResourceDictionary Source="/Converters/TextBlack.xaml" />
+                <ResourceDictionary Source="/Converters/TextBlack.xaml" />-->
+                <ResourceDictionary Source="/Converters/SyncfusionThemes.xaml" />
                 <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />-->
                 <!-- 自定义转换器 -->

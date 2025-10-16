@@ -6,7 +6,11 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity;
+using YangWei.Db.Apply;
 using YangWei.Db.Entity;
+using YangWei.Db.IApply;
+using YangWei.Db.Uitls;
 
 namespace YangWei.Db.Db
 {
@@ -20,16 +24,46 @@ namespace YangWei.Db.Db
 
 
             //禁用初始化器
-           // Database.SetInitializer<MesDbContext>(null);
+            Database.SetInitializer<MesDbContext>(null);
 
 
            // Database.SetInitializer(new MigrateDatabaseToLatestVersion<MesDbContext, Configuration>());
             // 开发环境使用（会丢失数据）
             // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MesDbContext>());
         }
+        public override int SaveChanges()
+        {
+
+            var changeTracker = ChangeTracker.Entries().ToList();
+            IUserBusiness userBusiness = IocContainer.Container.Resolve<IUserBusiness>();
+            var addEntries = changeTracker.Where(e => (e.State & EntityState.Added) == EntityState.Added);
+            foreach (var addEntity in addEntries)
+            {
+                {
+                    if (addEntity.Entity is Entity1 entityCreateTime)
+                    {
+                        entityCreateTime.CreateTime = DateTime.Now;
+                        entityCreateTime.CreateUser = userBusiness.Users.UserName;
+                        entityCreateTime.UpdateTime = DateTime.Now;
+                        entityCreateTime.UpdateUser = userBusiness.Users.UserName;
+                    }
+                }
+            }
+
+            var modifiedEntries = changeTracker.Where(e => (e.State & EntityState.Modified) == EntityState.Modified);
+            foreach (var modifiedEntry in modifiedEntries)
+            {
+                if (modifiedEntry.Entity is Entity1 entityUpdate)
+                {
+                    entityUpdate.UpdateTime = DateTime.Now;
+                    entityUpdate.UpdateUser = userBusiness.Users.UserName;
+                }
+            }
+            var delEntries = changeTracker.Where(e => (e.State & EntityState.Deleted) == EntityState.Deleted);
+            return base.SaveChanges();
+        }
 
 
-        
         public DbSet<Users> Users { get; set; }
         public DbSet<Menus> Menus { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

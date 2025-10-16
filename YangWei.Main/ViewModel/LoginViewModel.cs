@@ -24,7 +24,7 @@ namespace YangWei.Main.ViewModel
         {
             IUserBusiness userBusiness = IocContainer.Container.Resolve<IUserBusiness>();
             this.userBusiness=userBusiness;
-            userBusiness.InsUser();
+            //userBusiness.InsUser();
             this.loginView= loginView;
         }
 

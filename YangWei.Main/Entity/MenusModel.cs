@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using YangWei.Db.Entity;
+using YangWei.Main.Views;
 
 namespace YangWei.Main.Entity
 {
@@ -16,8 +18,22 @@ namespace YangWei.Main.Entity
         public byte[] Icon { get; set; }
         public string TitleName { get; set; }
         public IsShows? IsShow { get; set; }
-
-
+        public Type? ViewType { get; set; }
+        public Type? viewType
+        {
+            get
+            {
+                if(TitleName == "菜单管理")
+                {
+                    ViewType = typeof(TestUserControls);                   
+                }
+                return ViewType;
+            }
+            set
+            {
+                ViewType = value;
+            }
+        }
         public string ReMark { get; set; }
 
         public BitmapImage Image

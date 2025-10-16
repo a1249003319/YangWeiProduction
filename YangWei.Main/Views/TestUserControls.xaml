@@ -63,10 +63,22 @@
             </i:Interaction.Triggers>
             <syncfusion:SfTreeGrid.Columns>
                 <syncfusion:TreeGridTextColumn HeaderText="菜单名称" MappingName="TitleName"/>
-                <syncfusion:TreeGridTextColumn HeaderText="菜单图标" MappingName="Image"/>
-                <syncfusion:TreeGridTextColumn HeaderText="描述" MappingName="ReMark"/>
-                <syncfusion:TreeGridTextColumn HeaderText="是否显示" MappingName="IsShow"/>
 
+                <syncfusion:TreeGridTemplateColumn HeaderText="菜单图标" HorizontalHeaderContentAlignment="Center" MappingName="Status">
+                    <syncfusion:TreeGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <!-- 图标 -->
+                                <Image Source="{Binding Image}" 
+                               Width="50" Height="20" 
+                               Margin="0,0,5,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </syncfusion:TreeGridTemplateColumn.CellTemplate>
+                </syncfusion:TreeGridTemplateColumn>
+                <syncfusion:TreeGridTextColumn HeaderText="描述" MappingName="ReMark"/>
+                <!--<syncfusion:TreeGridTextColumn HeaderText="是否显示" MappingName="IsShow"/>-->
+                
                 <!-- 按钮列 -->
                 <syncfusion:TreeGridTemplateColumn HeaderText="操作" Width="120">
                     <syncfusion:TreeGridTemplateColumn.CellTemplate>

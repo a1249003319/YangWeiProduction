@@ -29,6 +29,7 @@ namespace YangWei.Db.Db
             Container = new UnityContainer();
             Container.RegisterType<IUserBusiness, UserBusiness>();
             Container.RegisterType<IMemoryProfileService, MemoryProfileService>();
+            Container.RegisterType<IContext, Context>();
             Container.RegisterType<IServiceProvider>();
         }
 
